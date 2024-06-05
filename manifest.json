@@ -1,10 +1,22 @@
 {
-    "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
-    "version": "1.0",
-    "action": {
-      "default_popup": "hello.html",
-      "default_icon": "hello_extensions.png"
+  "manifest_version": 3,
+  "name": "PTT Auto Insert Extension",
+  "version": "1.0",
+  "description": "Automatically inserts elements into PTT articles.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.ptt.cc/*"
+  ],
+  "icons": {
+    "16": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.ptt.cc/bbs/*/M.*.html"],
+      "js": ["/scripts/function.js"]
     }
-  }
+  ]
+}
